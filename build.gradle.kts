@@ -2,11 +2,15 @@ import net.blueberrymc.blueberryFarm.blueberry
 
 plugins {
     java
-    id("net.blueberrymc.blueberryFarm") version("1.0.0-SNAPSHOT") // https://github.com/BlueberryMC/BlueberryFarm
+    id("net.blueberrymc.blueberryFarm") version("1.0.1-SNAPSHOT") // https://github.com/BlueberryMC/BlueberryFarm
 }
 
 group = "net.blueberrymc.example"
 version = "0.0.1"
+
+tasks.withType<JavaExec>().configureEach {
+    javaLauncher.set(javaToolchains.launcherFor(java.toolchain))
+}
 
 java {
     toolchain {
