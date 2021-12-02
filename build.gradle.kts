@@ -1,10 +1,9 @@
-import net.blueberrymc.buildSrc.blueberry
+import net.blueberrymc.blueberryFarm.blueberry
 
 plugins {
     java
+    id("net.blueberrymc.blueberryFarm") version("1.0.0-SNAPSHOT") // https://github.com/BlueberryMC/BlueberryFarm
 }
-
-apply<net.blueberrymc.buildSrc.BlueberryPlugin>()
 
 group = "net.blueberrymc.example"
 version = "0.0.1"
@@ -31,16 +30,6 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.1")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.1")
 }
-
-/*
-tasks.getByName("prepareKotlinBuildScriptModel") {
-    dependsOn("patchVanillaJar")
-}
-
-tasks.getByName("compileJava") {
-    dependsOn("patchVanillaJar")
-}
-*/
 
 tasks.getByName<Test>("test") {
     useJUnitPlatform()
