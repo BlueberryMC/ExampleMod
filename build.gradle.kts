@@ -2,7 +2,7 @@ import net.blueberrymc.blueberryFarm.blueberry
 
 plugins {
     java
-    id("net.blueberrymc.blueberryFarm") version("1.0.2-SNAPSHOT") // https://github.com/BlueberryMC/BlueberryFarm
+    id("net.blueberrymc.blueberryFarm") version("1.0.3-SNAPSHOT") // https://github.com/BlueberryMC/BlueberryFarm
 }
 
 group = "net.blueberrymc.example"
@@ -20,7 +20,7 @@ java {
 
 blueberry {
     minecraftVersion.set("1.18")
-    apiVersion.set("0.0.19")
+    apiVersion.set("0.1.0")
 }
 
 repositories {
@@ -31,8 +31,8 @@ repositories {
 
 dependencies {
     blueberry()
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.1")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.1")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.2")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.2")
 }
 
 tasks {
