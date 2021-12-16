@@ -24,15 +24,22 @@ blueberry {
 }
 
 repositories {
-    mavenLocal()
+    // mavenLocal()
     mavenCentral()
+    maven { url = uri("https://repo2.acrylicstyle.xyz/") } // deprecated
+    maven { url = uri("https://libraries.minecraft.net/") }
     maven { url = uri("https://repo.blueberrymc.net/repository/maven-public/") }
+    maven { url = uri("https://repo.spongepowered.org/maven/") }
 }
 
 dependencies {
     blueberry()
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.2")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.2")
+}
+
+configurations.all {
+    resolutionStrategy.cacheChangingModulesFor(0, TimeUnit.SECONDS)
 }
 
 tasks {
