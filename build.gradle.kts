@@ -1,8 +1,8 @@
-import net.blueberrymc.blueberryFarm.blueberry
+import net.blueberrymc.blueberryfarm.blueberry
 
 plugins {
     java
-    id("net.blueberrymc.blueberryFarm") version("1.0.4-SNAPSHOT") // https://github.com/BlueberryMC/BlueberryFarm
+    id("net.blueberrymc.blueberryfarm") version("2.0.0-SNAPSHOT") // https://github.com/BlueberryMC/BlueberryFarm
 }
 
 group = "net.blueberrymc.example"
@@ -19,8 +19,8 @@ java {
 }
 
 blueberry {
-    minecraftVersion.set("1.18.2")
-    apiVersion.set("1.0.0-SNAPSHOT")
+    minecraftVersion.set("1.19.3")
+    apiVersion.set("1.7.0-SNAPSHOT")
 }
 
 repositories {
@@ -31,20 +31,22 @@ repositories {
 
 dependencies {
     blueberry()
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.2")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.2")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.0")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.9.0")
 }
 
+/*
 configurations.all {
     resolutionStrategy.cacheChangingModulesFor(0, TimeUnit.SECONDS)
 }
+*/
 
 tasks {
-    withType<JavaCompile> {
+    compileJava {
         options.encoding = "UTF-8"
     }
-}
 
-tasks.getByName<Test>("test") {
-    useJUnitPlatform()
+    test {
+        useJUnitPlatform()
+    }
 }

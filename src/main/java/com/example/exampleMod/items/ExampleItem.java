@@ -4,7 +4,6 @@ import net.blueberrymc.common.bml.BlueberryMod;
 import net.blueberrymc.world.item.BlueberryItem;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -13,7 +12,6 @@ import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
-import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -48,12 +46,12 @@ public class ExampleItem extends BlueberryItem {
         if (player == null) return InteractionResult.FAIL;
         float power = getPower(context.getItemInHand());
         // player is passed for first parameter so user will not take damage from explosion
-        context.getLevel().explode(player, context.getClickLocation().x, context.getClickLocation().y, context.getClickLocation().z, power, Explosion.BlockInteraction.DESTROY);
+        context.getLevel().explode(player, context.getClickLocation().x, context.getClickLocation().y, context.getClickLocation().z, power, Level.ExplosionInteraction.TNT);
         return InteractionResult.CONSUME;
     }
 
     /**
-     * Get the tag from item stack and returns the effective explosio n power.
+     * Get the tag from item stack and returns the effective explosion power.
      * @param stack the item stack
      * @return explosion power, defaults to 5.0f. Can never be infinity or NaN.
      */
@@ -77,7 +75,7 @@ public class ExampleItem extends BlueberryItem {
     @Override
     public void appendHoverText(@NotNull ItemStack itemStack, @Nullable Level level, @NotNull List<Component> list, @NotNull TooltipFlag tooltipFlag) {
         // tooltip
-        list.add(new TextComponent("Texture is '5F' because default explosion power is 5.0f"));
+        list.add(Component.literal("Texture is '5F' because default explosion power is 5.0f"));
         super.appendHoverText(itemStack, level, list, tooltipFlag);
     }
 
@@ -86,6 +84,6 @@ public class ExampleItem extends BlueberryItem {
     public Component getName(@NotNull ItemStack itemStack) {
         // item name
         float power = getPower(itemStack);
-        return new TextComponent("Example item (Power: " + power + ")");
+        return Component.literal("Example item (Power: " + power + ")");
     }
 }
