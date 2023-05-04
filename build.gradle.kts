@@ -2,7 +2,7 @@ import net.blueberrymc.blueberryfarm.blueberry
 
 plugins {
     java
-    id("net.blueberrymc.blueberryfarm") version("2.0.0-SNAPSHOT") // https://github.com/BlueberryMC/BlueberryFarm
+    id("net.blueberrymc.blueberryfarm") version("2.1.0") // https://github.com/BlueberryMC/BlueberryFarm
 }
 
 group = "net.blueberrymc.example"
