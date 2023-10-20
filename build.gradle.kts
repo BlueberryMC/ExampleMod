@@ -2,7 +2,7 @@ import net.blueberrymc.blueberryfarm.blueberry
 
 plugins {
     java
-    id("net.blueberrymc.blueberryfarm") version("2.0.0-SNAPSHOT") // https://github.com/BlueberryMC/BlueberryFarm
+    id("net.blueberrymc.blueberryfarm") version("2.3.0") // https://github.com/BlueberryMC/BlueberryFarm
 }
 
 group = "net.blueberrymc.example"
@@ -19,8 +19,8 @@ java {
 }
 
 blueberry {
-    minecraftVersion.set("1.19.3")
-    apiVersion.set("1.7.0-SNAPSHOT")
+    minecraftVersion.set("1.20.2")
+    apiVersion.set("2.0.0-SNAPSHOT")
 }
 
 repositories {
